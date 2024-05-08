@@ -57,4 +57,15 @@ pipeline {
         }
     
     
-          }}}
+          }
+            stage('Deploy with Ansible') {
+            steps {
+                script {
+                    // Execute Ansible playbook
+                    docker.image('ansible/ansible:latest').inside {
+                        ansiblePlaybook playbook: '/ansible/playbook.yml'
+                    }
+                }
+            }
+        }
+}}
