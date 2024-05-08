@@ -63,7 +63,7 @@ pipeline {
                 script {
                     // Execute Ansible playbook
                     docker.image('ansible/ansible:latest').inside {
-                        ansiblePlaybook playbook: '/ansible/playbook.yml', inventory: '/ansible/inventory.ini'
+                        ansiblePlaybook playbook: '/ansible/playbook.yml'
                     }
                 }
             }
